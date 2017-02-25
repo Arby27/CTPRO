@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class playerMovement : MonoBehaviour {
@@ -13,6 +14,7 @@ public class playerMovement : MonoBehaviour {
     public Transform bulletTransform;
     public Transform muzzleTransform;
     public Text Ammo;
+    public Text EnemiesLeft;
     public Animator animator;
 
     public Camera PlayerCam;
@@ -34,6 +36,7 @@ public class playerMovement : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        EnemiesLeft.text = "Enemies Left " + GameObject.FindGameObjectsWithTag("Enemy").Length.ToString();
         PlayerCam.transform.position = anchor.transform.position;
         float transformX = 0;
         float transformZ = Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime;
@@ -78,6 +81,12 @@ public class playerMovement : MonoBehaviour {
             Ammo.text = "Ammo: " + ammoCount + "/8";
         }
         
+
+       if(GameObject.FindGameObjectsWithTag("Enemy").Length <= 0)
+        {
+            SceneManager.LoadScene(0);
+        }
+
 
     }
 

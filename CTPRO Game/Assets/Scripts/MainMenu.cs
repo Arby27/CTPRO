@@ -21,7 +21,7 @@ public class MainMenu : MonoBehaviour {
         {
             i++;
         }
-        cursor.transform.position = menubuttons[i].transform.position;
+        cursor.transform.position = menubuttons[i].transform.position + new Vector3(50,0,0);
 
         if(i > 3)
         {
@@ -60,6 +60,7 @@ public class MainMenu : MonoBehaviour {
     public void FirstPersonDriver()
     {
         EndState.thisDemo = EndState.DemoType.FirstPersonDriving;
+        LapCounter.LapCount = 0;
         SceneManager.LoadScene(2);
     }
 
@@ -67,6 +68,7 @@ public class MainMenu : MonoBehaviour {
     public void ThirdPersonDriver()
     {
         EndState.thisDemo = EndState.DemoType.ThirdPersonDriving;
+        LapCounter.LapCount = 0;
         SceneManager.LoadScene(3);
     }
 

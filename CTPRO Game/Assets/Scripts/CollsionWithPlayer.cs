@@ -6,6 +6,10 @@ public class CollsionWithPlayer : MonoBehaviour {
     public static string[] names;
     static int count;
 
+    void Start()
+    {
+        count = 1;
+    }
     void Update()
     {
         names = new string[count];
@@ -16,10 +20,11 @@ public class CollsionWithPlayer : MonoBehaviour {
         if(col.collider.tag == "Player" )
         {
             Globals.numberOfCollisions++;
-           
-           // names[count] = this.gameObject.name;
+            names[count-1] = gameObject.name;
+            EndState.WriteCollisionTypeToFile();
+           //names[count] = this.gameObject.name;
             count++;
-            print(Globals.numberOfCollisions + " " + this.gameObject.name);
+           print(names[count-2]);
 
         }
     }

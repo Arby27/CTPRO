@@ -1,20 +1,31 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class LapCounter : MonoBehaviour {
 
-    int LapCount;
+    public static int LapCount;
     float LapTimer;
     string Minutes;
     string Seconds;
 
+    string Minutes2;
+    string Seconds2;
+
+
+    public static float[] Lap = new float[4];
+    float previousLap;
+
     public Text timer;
     public Text counter;
+    public Text[] lapTimes;
+
+    bool cheater;
 
 	// Use this for initialization
 	void Start () {
-   
+        LapCount = 0;
         counter.text = "Lap: " + LapCount + "/3";
 	}
 	
@@ -27,14 +38,42 @@ public class LapCounter : MonoBehaviour {
 
         timer.text = Minutes + ":" + Seconds;
 
+        if(LapCount > 3)
+        {
+            SceneManager.LoadScene(0);
+        }
+
     }
 
     void OnTriggerEnter(Collider checkpoint)
     {
-        LapCount++;
+        Lap[LapCount] = LapTimer - previousLap;
+        print(Lap[LapCount]);
+        previousLap = Lap[LapCount];
+
+        Minutes2 = Mathf.Floor(Lap[LapCount] % 60).ToString();
+        Seconds2 = Mathf.Floor(Lap[LapCount] / 60).ToString();
+
+        lapTimes[LapCount].text = Minutes2 + ":" + Seconds2;
         counter.text = "Lap: " + LapCount + "/3";
         print(Minutes + ":" + Seconds);
-        LapTimer = 0.0f;
+
+
+        if(Globals.shortcutByte == 5)
+        {
+            cheater = true;
+        }
+        else
+        {
+            cheater = false;
+        }
+        if (LapCount > 0)
+        {
+            EndState.ShortCutRecord(cheater);
+        }
+        Globals.shortcutByte = 0;
+        LapCount++;
+        
     }
 
 }

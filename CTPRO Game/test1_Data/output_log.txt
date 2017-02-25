@@ -6,36 +6,38 @@ Direct3D:
     Vendor:   NVIDIA
     VRAM:     4008 MB
 Begin MonoManager ReloadAssembly
-Platform assembly: F:\Final Year\CTPRO\CTPRO Game\test1_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading F:\Final Year\CTPRO\CTPRO Game\test1_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: F:\Final Year\CTPRO\CTPRO Game\test1_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading F:\Final Year\CTPRO\CTPRO Game\test1_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: F:\Final Year\CTPRO\CTPRO Game\test1_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading F:\Final Year\CTPRO\CTPRO Game\test1_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: F:\Final Year\CTPRO\CTPRO Game\test1_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
-Loading F:\Final Year\CTPRO\CTPRO Game\test1_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-Platform assembly: F:\Final Year\CTPRO\CTPRO Game\test1_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
-Loading F:\Final Year\CTPRO\CTPRO Game\test1_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.038 seconds
-Platform assembly: F:\Final Year\CTPRO\CTPRO Game\test1_Data\Managed\System.Core.dll (this message is harmless)
-Platform assembly: F:\Final Year\CTPRO\CTPRO Game\test1_Data\Managed\System.dll (this message is harmless)
+Platform assembly: F:\Uni Work\Final Year\CTPRO\CTPRO\CTPRO Game\test1_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading F:\Uni Work\Final Year\CTPRO\CTPRO\CTPRO Game\test1_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: F:\Uni Work\Final Year\CTPRO\CTPRO\CTPRO Game\test1_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading F:\Uni Work\Final Year\CTPRO\CTPRO\CTPRO Game\test1_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: F:\Uni Work\Final Year\CTPRO\CTPRO\CTPRO Game\test1_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading F:\Uni Work\Final Year\CTPRO\CTPRO\CTPRO Game\test1_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: F:\Uni Work\Final Year\CTPRO\CTPRO\CTPRO Game\test1_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading F:\Uni Work\Final Year\CTPRO\CTPRO\CTPRO Game\test1_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: F:\Uni Work\Final Year\CTPRO\CTPRO\CTPRO Game\test1_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading F:\Uni Work\Final Year\CTPRO\CTPRO\CTPRO Game\test1_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+- Completed reload, in  0.032 seconds
+Platform assembly: F:\Uni Work\Final Year\CTPRO\CTPRO\CTPRO Game\test1_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: F:\Uni Work\Final Year\CTPRO\CTPRO\CTPRO Game\test1_Data\Managed\System.dll (this message is harmless)
 <RI> Initializing input.
 <RI> Input initialized.
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initialized touch support.
-UnloadTime: 0.641239 ms
+UnloadTime: 0.582988 ms
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 21ec -> priority: 1 
-  Thread -> id: 3284 -> priority: 1 
-Joystick disconnected ("Wireless Controller").
- 
-(Filename:  Line: 714)
+  Thread -> id: 2aa8 -> priority: 1 
+  Thread -> id: 26e4 -> priority: 1 
+Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 3.888035 ms
 
-Joystick reconnected ("Wireless Controller").
- 
-(Filename:  Line: 1325)
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 4136.
+Total: 0.583499 ms (FindLiveObjects: 0.144597 ms CreateObjectMapping: 0.114451 ms MarkObjects: 0.315763 ms  DeleteObjects: 0.008175 ms)
 
-Joystick disconnected ("Wireless Controller").
+/DataTest.txt/DataTest\FirstPersonDrivingParticipant
  
-(Filename:  Line: 714)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+0:0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
 

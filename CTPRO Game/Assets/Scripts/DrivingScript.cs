@@ -35,6 +35,7 @@ public class DrivingScript : MonoBehaviour {
 
     Vector3 lastPos;
     Vector3 currentPos;
+    int speed;
 
 	// Use this for initialization
 	void Start () {
@@ -48,7 +49,6 @@ public class DrivingScript : MonoBehaviour {
         
         if (Input.GetButton("Fire1"))
         {
-            print("pressed");
             acceleration += 0.1f;
             backWheel.brakeTorque = 0;
         }
@@ -57,7 +57,7 @@ public class DrivingScript : MonoBehaviour {
        
         GetComponent<Rigidbody>().AddForce(transform.forward * force, ForceMode.Acceleration);
 
-        if (acceleration >= 0)
+        if (acceleration > 0.0000000000000001f)
         {
             acceleration -= 0.05f;
         }
@@ -94,7 +94,9 @@ public class DrivingScript : MonoBehaviour {
             fastestSpeed = (float)CurrentSpeed;
         }
 
+        speed = (int)CurrentSpeed;
 
+   
 
         frontWheel.steerAngle = Input.GetAxis("Horizontal") * turnAngle;
 
@@ -104,7 +106,7 @@ public class DrivingScript : MonoBehaviour {
         transform.eulerAngles =  new Vector3(0, 90, zRot);
         Bike.transform.eulerAngles = new Vector3(0, -yRot, zRot);
 
-        Speed.text = CurrentSpeed.ToString() + "MPH";
+        Speed.text = speed.ToString() + "MPH";
 
 
         Bike.transform.rotation = Quaternion.Slerp(Quaternion.Euler(transform.rotation.eulerAngles.x, 
@@ -117,4 +119,16 @@ public class DrivingScript : MonoBehaviour {
    
 
     }
+
+   void OnCollisionEnter(Collision col)
+    {
+        if(col.collider.tag == "Obstacle")
+        print("collision");
+        gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        gameObject.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+        acceleration = 0;
+        force = 0;
+       
+    }
+   
 }

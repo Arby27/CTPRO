@@ -4,7 +4,9 @@ using System.Collections;
 public class Globals : MonoBehaviour {
 
     public static int numberOfCollisions;
-    public static DemoType demoType; 
+    public static DemoType demoType;
+
+    public static byte shortcutByte;
     
 	// Use this for initialization
 	void Start () {
