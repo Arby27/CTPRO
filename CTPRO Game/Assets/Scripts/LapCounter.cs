@@ -49,7 +49,7 @@ public class LapCounter : MonoBehaviour {
     {
         Lap[LapCount] = LapTimer - previousLap;
         print(Lap[LapCount]);
-        previousLap = Lap[LapCount];
+        previousLap = Lap[LapCount]+ previousLap;
 
         Minutes2 = Mathf.Floor(Lap[LapCount] % 60).ToString();
         Seconds2 = Mathf.Floor(Lap[LapCount] / 60).ToString();
