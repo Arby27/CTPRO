@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Health : MonoBehaviour {
-
+    //global health script
     float maxHealth = 100f;
     float health;
 	// Use this for initialization

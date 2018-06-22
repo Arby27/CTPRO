@@ -1,0 +1,2 @@
+Pallet
+Bullets Fired 113 , Bullets Hit 48, Near Misses 31, Time Taken 02:55, Collision Amount 1

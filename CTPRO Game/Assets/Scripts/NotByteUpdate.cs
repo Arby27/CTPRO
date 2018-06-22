@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class NotByteUpdate : MonoBehaviour {
-
+    //legacy?
 void OnTriggerEnter(Collider collision)
     {
         if(collision.tag == "player")

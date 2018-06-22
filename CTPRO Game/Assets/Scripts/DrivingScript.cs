@@ -4,126 +4,79 @@ using System.Collections;
 
 public class DrivingScript : MonoBehaviour {
 
-     
-    public static float fastestSpeed;
-
-    public  WheelCollider frontWheel;
-
-   public  WheelCollider backWheel;
-
-   public Rigidbody bikeRB;
-   public GameObject Bike;
-
-   public Text Speed;
-
-   public int moveSpeed;
-   public int brakeSpeed;
-   public int turnAngle;
-
-    float zRot;
-    float yRot;
-
-    float acceleration;
-    float force;
-    float distance;
-    double intialVel;
-    double CurrentSpeed;
-
-    Quaternion currentRot;
-    Quaternion targetRot;
-
-
-    Vector3 lastPos;
-    Vector3 currentPos;
-    int speed;
+    //This script attaches to player bike objects within the driving scenes
+  public static float fastestSpeed;
+  public  WheelCollider backWheel;
+  public Rigidbody bikeRB;
+  public GameObject bike;
+  public Text speed;
+  float yRot;
+  float acceleration;
+  float force;
+  double CurrentSpeed;
+  int speedMPH;
 
 	// Use this for initialization
 	void Start () {
         
         transform.Rotate(new Vector3(0, 90, 0));
-        lastPos = currentPos;
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
         
+        //when trigger is held accelrate
         if (Input.GetButton("Fire1"))
         {
-            acceleration += 0.1f;
-            backWheel.brakeTorque = 0;
+            acceleration += 0.15f;
+      
         }
+
+        //Give a mass based force addition to make the vehicle move
         force = backWheel.mass * acceleration;
-       // GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, 0, force));
-       
         GetComponent<Rigidbody>().AddForce(transform.forward * force, ForceMode.Acceleration);
 
+        //a constant deceleration, when not accelerating
         if (acceleration > 0.0000000000000001f)
         {
             acceleration -= 0.05f;
         }
-
+        //a break and eventually reverse for the bike
         if (Input.GetButton("Reload"))
         {
-            acceleration -=  0.09f;
+            acceleration -=  0.15f;
 
-            if (backWheel.motorTorque < 0)
-            {
-                backWheel.brakeTorque = brakeSpeed;
-            }
-            else if(backWheel.motorTorque == 0)
-            {
-                backWheel.brakeTorque = brakeSpeed;
-            }
-            else
-            {
-               
-                backWheel.motorTorque -= moveSpeed;
-            }
         }
 
-        currentPos = transform.position;
-        distance = Vector3.Distance(currentPos,lastPos);
-        lastPos = currentPos;
-
-
+        //Gets teh current speed and converts it to MPH
         CurrentSpeed = GetComponent<Rigidbody>().velocity.magnitude;
-        CurrentSpeed = (CurrentSpeed * 1609.344) / 3600;
+        CurrentSpeed = (CurrentSpeed * 3600) / 1609.344;
 
+        //if the current speed is faster than fastest overwrite current fastest speed, this is static so it can be used in file writer
         if(CurrentSpeed > fastestSpeed)
         {
             fastestSpeed = (float)CurrentSpeed;
         }
 
-        speed = (int)CurrentSpeed;
-
-   
-
-        frontWheel.steerAngle = Input.GetAxis("Horizontal") * turnAngle;
-
-        //zRot -= Input.GetAxis("Horizontal");
-        zRot = Mathf.Clamp(zRot, -45, 45);
+        speedMPH = (int)CurrentSpeed;
+        speed.text = speedMPH.ToString() + "MPH";
+        //allows the bike to turn
         yRot -= Input.GetAxis("Horizontal");
-        transform.eulerAngles =  new Vector3(0, 90, zRot);
-        Bike.transform.eulerAngles = new Vector3(0, -yRot, zRot);
-
-        Speed.text = speed.ToString() + "MPH";
-
-
-        Bike.transform.rotation = Quaternion.Slerp(Quaternion.Euler(transform.rotation.eulerAngles.x, 
+        bike.transform.eulerAngles = new Vector3(0, -yRot, 0);
+        bike.transform.rotation = Quaternion.Slerp(Quaternion.Euler(transform.rotation.eulerAngles.x, 
                                                                     transform.rotation.eulerAngles.y,
                                                                     transform.rotation.eulerAngles.z),
                                                                     Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, 0),
                                                                     Time.deltaTime);
         
 
-   
-
     }
 
+    //Slows the bike down on collision
    void OnCollisionEnter(Collision col)
     {
         if(col.collider.tag == "Obstacle")
-        print("collision");
         gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
         gameObject.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
         acceleration = 0;

@@ -9,6 +9,7 @@ public class MainMenu : MonoBehaviour {
     public GameObject cursor;
 
     int i = 0;
+    // a simple main menu so all the demos can be loaded frim 1 exe and so taht the order of demos played can be chosesn
 	// Use this for initialization
 	void Start () {
         cursor.transform.position = menubuttons[0].transform.position;

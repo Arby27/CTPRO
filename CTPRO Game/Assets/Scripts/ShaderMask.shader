@@ -1,6 +1,8 @@
 ﻿Shader "Custom/ShaderMask" {
 	Properties {
-		
+		//creates a mask that when applied to a material allows for transparency through the alpha channel of texture, 
+		//with white being completly visible and black being invisible
+		//used to give the buildings a more destroyed look
 		_MainTex ("MainTexture", 2D) = "white" {}
 		_Mask("MaskTexture",2D) = "white" {}
 		_SecondTex("SecondTexture",2D) = "white" {}

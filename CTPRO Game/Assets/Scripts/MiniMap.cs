@@ -3,6 +3,8 @@ using System.Collections;
 
 public class MiniMap : MonoBehaviour {
 
+    // a simple toggleable minimap that uses a secondary camera that only renders the environment and playuer/enemy location tags,
+    //to aid player in loacting enemies
     public GameObject Map;
     bool mapUp;
 

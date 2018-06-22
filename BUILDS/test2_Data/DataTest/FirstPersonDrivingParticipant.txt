@@ -1,0 +1,7 @@
+Did not take Shorcut on Lap 1
+Pallet
+Did not take Shorcut on Lap 2
+Skyscraper (6)
+Skyscraper (6)
+Did not take Shorcut on Lap 3
+Time Taken 00:12, Collision Amount 4, Top Speed 692.786, Lap 1 3.869117, Lap 2 1.416812, Lap 3 7.083604

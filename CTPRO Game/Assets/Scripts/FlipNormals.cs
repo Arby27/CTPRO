@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class FlipNormals : MonoBehaviour {
-
+    //This script is used to fix a normals issue within unity that was found
     // Use this for initialization
     void Start()
     {

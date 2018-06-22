@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Globals : MonoBehaviour {
-
+    //global variables
     public static int numberOfCollisions;
     public static DemoType demoType;
 

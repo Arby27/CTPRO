@@ -5,7 +5,7 @@ public class CollsionWithPlayer : MonoBehaviour {
 
     public static string[] names;
     static int count;
-
+    //This script should be attached to all non floor environment objects
     void Start()
     {
         count = 1;
@@ -17,15 +17,14 @@ public class CollsionWithPlayer : MonoBehaviour {
 
     void OnCollisionEnter(Collision col)
     {
+        //When the player collides with an object, 
+        //increse the number of collisions and write the new of the collided object to a string
         if(col.collider.tag == "Player" )
         {
             Globals.numberOfCollisions++;
             names[count-1] = gameObject.name;
             EndState.WriteCollisionTypeToFile();
-           //names[count] = this.gameObject.name;
             count++;
-           print(names[count-2]);
-
         }
     }
 }

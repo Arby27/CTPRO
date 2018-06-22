@@ -1,0 +1,22 @@
+This program runs on unity 5.4.0
+The builds folder contains the build used for the test
+The build requires and Oculus Rift, thie test used a DK2
+A controller is required for use of the program, a PlayStation 4 controller was used
+
+Main Menu Controls:
+R2 - Changes cursor position
+L2/Square - Select Demo at current cursor position
+
+Shooter Controls:
+Left Stick - Forward and backwards movement
+Right Stick - Avartar rotation
+R2 - Fire gun
+Square/L2 - Reload
+
+Driving Controls:
+Left Stick - Turn
+R2 (Held) - Accelerate
+L2/Square(Held) - Brake/Reverse 
+
+
+Whilst an xbox controller can work, the controls trasnpose differently and would have to be worked out
